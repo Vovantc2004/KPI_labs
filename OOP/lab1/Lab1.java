@@ -9,19 +9,20 @@ public class Lab1 {
         final int C = 1;
         final int a = 0;
         final int b = 0;
-        final int n = 10;
-        final int m = 10;
+        final int n = 3;
+        final int m = 4;
 
         double S = 0;
-        for (double i = a; i <= n; i++) {
-            if(i + C == 0) {
-                System.out.println("Error! Division by zero.");
-                break;
-            }
-            for (double j = b; j <= m; j++) {
-                S += (i * j) / (i + C);
-            }
+        if (a <= -C && -C<= n) {
+            System.out.println("Error! Division by zero.");
         }
-        System.out.println("S = " + S);
+        else {
+            for (double i = a; i <= n; i++) {
+                for (double j = b; j <= m; j++) {
+                    S += i * j / (i + C);
+                }
+            }
+            System.out.println("S = " + S);
+        }
     }
 }
