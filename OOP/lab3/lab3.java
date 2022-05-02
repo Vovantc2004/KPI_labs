@@ -7,15 +7,14 @@ public class lab3 {
         C17 = 12; Дія з рядком:
         Відсортувати слова заданого тексту за кількістю входжень визначеного символу в них */
 
-        //
         Scanner sc = new Scanner(System.in);
         System.out.print("\nВведіть один символ, за яким відсортується масив: ");
         String symbol = sc.nextLine();
 
         StringBuffer string = new StringBuffer("Loaaremf ipsum doloffr sifsft amrtet, consecaatetur adipiffscing elit. FF ffF Uuu abcpsdeffg. Rrfr arb asd sfasf ffff.");
         System.out.println("Заданий текст: " + string);
-
         System.out.println("Символ за яким сортуються слова рядка: " + symbol);
+        
         String[] a = sort(string.toString(), symbol);
         System.out.println(Arrays.toString(a));
     }
@@ -58,7 +57,6 @@ public class lab3 {
                 }
             }
         }
-
         return array;
     }
 }
