@@ -13,10 +13,10 @@ public class lab3 {
 
         StringBuffer string = new StringBuffer("Loaaremf ipsum doloffr sifsft amrtet, consecaatetur adipiffscing elit. FF ffF Uuu abcpsdeffg. Rrfr arb asd sfasf ffff.");
         System.out.println("Заданий текст: " + string);
+
         System.out.println("Символ за яким сортуються слова рядка: " + symbol);
-        
         String[] a = sort(string.toString(), symbol);
-        System.out.println(Arrays.toString(a));
+        System.out.println("Відсортований масив слів: " + Arrays.toString(a));
     }
 
     // Створимо метод для сортування рядка
@@ -38,7 +38,9 @@ public class lab3 {
         for (int i = 0; i < array.length; i++) {
             int counter = 0;
             for (int j = 0; j < array[i].length(); j++) {
-                if ((array[i].substring(j, j + 1).equals(symbol.toLowerCase())) || (array[i].substring(j, j + 1).equals(symbol.toUpperCase()))) counter += 1;
+                if ((array[i].substring(j, j + 1).equalsIgnoreCase(symbol))) {
+                    counter += 1;
+                }
             }
             array[i] += " " + counter;
         }
