@@ -8,17 +8,17 @@ public class lab2 {
         та найменших елементів в стовпцях матриці з парними номерами*/
 
         // Задамо значення константі a та матриці B, ініціалізуймо матрицю C
-        final int a = 2;
-        float[][] B = {
-                {1.2f, 0f, 9.7f, 4f},
-                {5.6f, 6f, 10.1f, 2f},
-                {3.26f, 2.8f, 5f, 1.3f},
-                {15.5f, -2.3f, 13f, 16f}
+        final int a = 1;
+        final float[][] B = {
+                {-50f, 10f, 0f, 25f},
+                {1.2f, 5f, 1.8f, 0.9f},
+                {1.8f, 11f, 1.9f, 0f},
+                {-90f, 1f, -23f, 100f}
         };
         float[][] C = new float[B.length][B[0].length];
 
         // Заповнимо матрицю C значеннями
-        System.out.println("Матриця C:");
+        System.out.println("\nМатриця C:");
         for (int i = 0; i < B.length; i++) {
             for (int j = 0; j < B[0].length; j++) {
                 C[i][j] = a * B[i][j];
@@ -27,18 +27,26 @@ public class lab2 {
             System.out.println();
         }
 
-        // Обчислимо суму
+        // Обчислимо суму (виправлено)
         float Sum = 0f;
-        for (int j = 0; j < C[0].length; j++) {
-            float min = C[0][j];
-            float max = C[0][j];
-            for (float[] floats : C) {
-                if ((((j + 1) % 2) == 1) && (floats[j] > max)) max = floats[j];
-                else if (floats[j] < min) min = floats[j];
+        for (int i = 0; i < C[0].length; i += 2) {
+            float min = C[0][i];
+            for (int j = 0; j < C.length; j++) {
+                if (C[j][i] < min) {
+                    min = C[j][i];
+                }
             }
-            if (((j + 1) % 2) == 1) Sum += max;
-            else Sum += min;
+            Sum += min;
         }
-        System.out.println("Сума = " + Sum);
+        for (int i = 1; i < C[0].length; i += 2) {
+            float max = C[0][i];
+            for (int j = 0; j < C.length; j++) {
+                if (C[j][i] > max) {
+                    max = C[j][i];
+                }
+            }
+            Sum += max;
+        }
+        System.out.println("\nСума = " + Sum);
     }
 }
